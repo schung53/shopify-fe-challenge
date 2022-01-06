@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@mui/styles';
+import moment from 'moment';
 
 // UI
 import { Card } from '@mui/material';
-import { CardHeader } from '@mui/material';
 import { CardMedia } from '@mui/material';
 import { CardContent } from '@mui/material';
 import { Typography } from '@mui/material';
@@ -15,13 +15,21 @@ const styles = {
         margin: '10px 10px 10px 10px',
         backgroundColor: '#001c33',
         borderColor: '#154169',
-        borderRadius: '10px'
+        borderRadius: '10px',
+        justifyContent: 'center'
     },
-    cardHeader: {
+    cardTitle: {
         color: '#6db9fb',
-        padding: '7px 3px 7px 3px'
+        padding: '7px 3px 7px 3px',
+        textAlign: 'left'
+    },
+    titlePadding: {
+        padding: '5px 5px 5px 5px'
     },
     cardImage: {
+        borderRadius: '7px',
+        maxWidth: '96%',
+        margin: '5px 5px 5px 5px'
     },
     cardContent: {
         color: '#ffffff',
@@ -38,11 +46,11 @@ export class PictureCard extends Component {
                 className={classes.card}
                 variant='outlined'
             >
-
-                    <Typography variant='h6' className={classes.cardHeader}>
+                <div className={classes.titlePadding}>
+                    <Typography variant='body1' className={classes.cardTitle}>
                         {picture.title}
                     </Typography>
-
+                </div>
                 <CardMedia 
                     className={classes.cardImage}
                     component="img"
@@ -52,8 +60,12 @@ export class PictureCard extends Component {
                 <CardContent
                     className={classes.cardContent}
                 >
-                    <Typography variant='body2'>
-                        {picture.explanation.slice(0, 100)}...
+                    <Typography variant='caption' style={{color: "#6db9fb"}} fullWidth>
+                        {moment(picture.date).format("MMMM Do YYYY")}
+                    </Typography>
+                    {" – "}
+                    <Typography variant='caption'>
+                        {picture.explanation.slice(0, 100).trim()}...
                     </Typography>
                 </CardContent>
             </Card>
