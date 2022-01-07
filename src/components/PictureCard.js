@@ -60,7 +60,7 @@ export class PictureCard extends Component {
                 <CardContent
                     className={classes.cardContent}
                 >
-                    <Typography variant='caption' style={{color: "#6db9fb"}} fullWidth>
+                    <Typography variant='caption' style={{color: "#6db9fb"}}>
                         {moment(picture.date).format("MMMM Do YYYY")}
                     </Typography>
                     {" – "}
