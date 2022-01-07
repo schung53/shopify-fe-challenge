@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withStyles } from '@mui/styles';
 import PictureCard from '../components/PictureCard';
 
 // Redux
@@ -27,7 +28,10 @@ export class home extends Component {
                     <CircularProgress />
                     : 
                     <>
-                        <Grid container>
+                    <Grid container justify="center">
+                        <Grid item xs={0.5} />
+                        <Grid item xs={11} >
+                        <Grid container justify="center">
                             {pictures.map((picture) => {
                                 return (
                                     <Grid key={picture.date} item> 
@@ -36,6 +40,9 @@ export class home extends Component {
                                 )
                             })}
                         </Grid>
+                        </Grid>
+                        <Grid item xs={0.5} />
+                    </Grid>
                     </>
                 }
             </div>

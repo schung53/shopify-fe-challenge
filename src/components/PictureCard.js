@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@mui/styles';
 import moment from 'moment';
+import PictureModal from './PictureModal';
 
 // UI
 import { Card } from '@mui/material';
@@ -24,7 +25,7 @@ const styles = {
         textAlign: 'left'
     },
     titlePadding: {
-        padding: '5px 5px 5px 5px'
+        padding: '5px 8px 5px 8px'
     },
     cardImage: {
         borderRadius: '7px',
@@ -67,6 +68,7 @@ export class PictureCard extends Component {
                     <Typography variant='caption'>
                         {picture.explanation.slice(0, 100).trim()}...
                     </Typography>
+                    <PictureModal picture={picture}/>
                 </CardContent>
             </Card>
             </div>
