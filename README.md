@@ -7,6 +7,8 @@ This is my submission for the Shopify Front-End Developer Challenge. It is an in
 1. `npm install`
 2. `npm start`
 
+Or, check out the demo [here](https://shopify-fe-challenge.herokuapp.com/).
+
 ## Screenshots
 
 Photos and their captions are displayed on cards:
