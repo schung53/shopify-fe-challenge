@@ -110,7 +110,7 @@ export class PictureModal extends Component {
                 >
                     <DialogTitle className={classes.dialogTitle}>
                         <Grid container className={classes.titleGrid}>
-                            <Grid item>
+                            <Grid item style={{marginLeft: "10px"}}>
                                 {picture.title}
                             </Grid>
                             <Grid item>

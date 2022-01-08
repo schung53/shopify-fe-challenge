@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import PictureCard from '../components/PictureCard';
+import MoreButton from '../components/MoreButton';
 
 // Redux
 import { connect } from 'react-redux';
 import { setInitialDates } from '../features/dates/datesSlice';
-import { fetchPicturesAsync, fetchMorePicturesAsync } from '../features/pictures/picturesSlice';
+import { fetchPicturesAsync } from '../features/pictures/picturesSlice';
 
 // UI
 import { CircularProgress } from '@mui/material';
@@ -18,7 +19,7 @@ export class home extends Component {
     }
 
     render() {
-        const { pictures, loadingPictures, fetchMorePicturesAsync } = this.props;
+        const { pictures, loadingPictures } = this.props;
 
         return (
             <div>
@@ -45,11 +46,7 @@ export class home extends Component {
                     </>
                 }
             </div>
-            <button 
-                onClick={() => fetchMorePicturesAsync()}
-            >
-                Show Me Some More!
-            </button>
+            <MoreButton />
             </div>
         );
     }
@@ -62,8 +59,7 @@ const mapStateToProps = (state) => ({
 
 const mapActionsToProps = {
     setInitialDates,
-    fetchPicturesAsync,
-    fetchMorePicturesAsync
+    fetchPicturesAsync
 };
 
 export default connect(mapStateToProps, mapActionsToProps)(home);
