@@ -14,13 +14,13 @@ const styles = {
         backgroundColor: '#6db9fb',
         color: 'black',
         width: '300px',
-        margin: '20px auto 40px auto'
+        margin: '20px auto auto auto'
     },
     disabled: {
         backgroundColor: '#001c33',
         color: '#6db9fb',
         width: '300px',
-        margin: '20px auto 40px auto'
+        margin: '20px auto auto auto'
     },
     spinner: {
         height: '10px'
@@ -38,7 +38,7 @@ export class MoreButton extends Component {
                         startIcon={<CircularProgress className={classes.spinner}/>}
                         className={classes.disabled}
                     >
-                        More of the universe
+                        Deeper into the galaxy
                     </Button>
                     :
                     <Button
@@ -46,7 +46,7 @@ export class MoreButton extends Component {
                         variant="contained"
                         className={classes.button}
                     >
-                        More of the universe
+                        Deeper into the galaxy
                     </Button>
             }
             </div>

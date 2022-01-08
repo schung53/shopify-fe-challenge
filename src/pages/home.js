@@ -10,6 +10,7 @@ import { fetchPicturesAsync } from '../features/pictures/picturesSlice';
 
 // UI
 import { Grid } from '@mui/material';
+import { Typography } from '@mui/material';
 
 export class home extends Component {
     componentDidMount() {
@@ -55,7 +56,10 @@ export class home extends Component {
                         <Grid item xs={0.5} />
                     </Grid>
                 </div>
-            <MoreButton />
+                <MoreButton />
+                <Typography variant='body2' style={{margin: '20px auto 20px auto'}} color='white'>
+                    Made with ♥ by James S. Chung – 2022
+                </Typography>
             </div>
         );
     }
