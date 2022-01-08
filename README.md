@@ -22,3 +22,7 @@ Modal upon clicking on a photo:
 Date range selection for specific queries:
 
 <img width="1425" alt="screenshot-3" src="https://user-images.githubusercontent.com/63022198/148657897-10e20872-161a-4ea0-9329-e6c27ba5bc0c.png">
+
+Click on the "more" button to keep scrolling:
+
+<img width="1433" alt="screenshot-4" src="https://user-images.githubusercontent.com/63022198/148658342-9bfba4b1-901e-4a7a-ab28-8a71a6224cb4.png">
