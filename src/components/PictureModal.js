@@ -15,6 +15,9 @@ import { Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 const styles = {
+    button: {
+        backgroundColor: '#001c33'
+    },
     dialog: {
         borderRadius: '10px'
     },
@@ -99,7 +102,10 @@ export class PictureModal extends Component {
         return (
             <div>
                 <Button
+                    size='small'
+                    variant='outlined'
                     onClick={this.handleOpen}
+                    className={classes.button}
                 >
                     Read More
                 </Button>

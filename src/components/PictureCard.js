@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@mui/styles';
 import moment from 'moment';
 import PictureModal from './PictureModal';
+import LikeButton from './LikeButton';
 
 // UI
 import { Card } from '@mui/material';
 import { CardMedia } from '@mui/material';
 import { CardContent } from '@mui/material';
 import { Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 
 const styles = {
     card: {
@@ -40,7 +42,12 @@ const styles = {
     },
     cardContent: {
         color: '#ffffff',
-        textAlign: 'left'
+        textAlign: 'left',
+        marginBottom: '-7px'
+    },
+    actionsGrid: {
+        justifyContent: 'space-between',
+        marginTop: '6px'
     }
 };
 
@@ -97,7 +104,14 @@ export class PictureCard extends Component {
                     <Typography variant='caption'>
                         {picture.explanation.slice(0, 100).trim()}...
                     </Typography>
-                    <PictureModal picture={picture} date={humanizedDate}/>
+                    <Grid container className={classes.actionsGrid}>
+                        <Grid item>
+                            <LikeButton />
+                        </Grid>
+                        <Grid item>
+                            <PictureModal picture={picture} date={humanizedDate}/>
+                        </Grid>
+                    </Grid>
                 </CardContent>
             </Card>
             </div>
