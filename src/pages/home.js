@@ -33,7 +33,7 @@ export class home extends Component {
                         <Grid item xs={11} >
                             <Grid container>
                                 <Grid item>
-                                    <Typography variant='h3' style={{ margin: '20px auto auto 15px' }} color='#6db9fb'>
+                                    <Typography variant='h3' style={{ margin: '30px auto auto 15px' }} color='#6db9fb'>
                                         Spacestagram
                                     </Typography>
                                 </Grid>
