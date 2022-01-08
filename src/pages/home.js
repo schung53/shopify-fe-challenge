@@ -25,10 +25,25 @@ export class home extends Component {
 
         return (
             <div>
+
                 <div>
                     <Grid container justify="center">
                         <Grid item xs={0.5} />
                         <Grid item xs={11} >
+                            <Grid container>
+                                <Grid item>
+                                    <Typography variant='h3' style={{margin: '20px auto auto 15px'}} color='#6db9fb'>
+                                        Spacestagram
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                            <Grid container>
+                                <Grid item>
+                                    <Typography variant='body2' style={{margin: '10px auto 20px 15px'}} color='#6db9fb'>
+                                        Brought to you by NASA's Astronomy Picture of the Day (APOD) API
+                                    </Typography>
+                                </Grid>
+                            </Grid>
                             <Grid container justify="center">
                                 {loadingPictures ?
                                     <>

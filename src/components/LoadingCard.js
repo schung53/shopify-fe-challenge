@@ -17,7 +17,7 @@ const styles = {
     },
     card: {
         width: '300px',
-        margin: '10px 10px 10px 10px',
+        margin: '10px 10px 30px 10px',
         backgroundColor: '#001c33',
         borderColor: '#154169',
         borderRadius: '10px',
