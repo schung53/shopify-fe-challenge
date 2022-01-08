@@ -40,7 +40,7 @@ export default class PictureModal extends Component {
                         {picture.title}
                     </DialogTitle>
                     <DialogContent>
-                        
+                        <img src={picture.hdurl} alt={picture.title}/>
                     </DialogContent>
                 </Dialog>
             </div>

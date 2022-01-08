@@ -32,13 +32,45 @@ const styles = {
         maxWidth: '96%',
         margin: '5px 5px 5px 5px'
     },
+    cardVideo: {
+        borderColor: '#001c33',
+        borderRadius: '7px',
+        maxWidth: '95%',
+        margin: '5px 5px 5px 5px'
+    },
     cardContent: {
         color: '#ffffff',
         textAlign: 'left'
     }
 };
 
+
+
 export class PictureCard extends Component {
+    _renderCardMedia() {
+        const { classes, picture } = this.props;
+
+        if (picture.media_type === "image") {
+            return (
+                <CardMedia 
+                    className={classes.cardImage}
+                    component="img"
+                    image={picture.url}
+                    alt={picture.title}
+                />
+            );
+        } else {
+            return (
+                <CardMedia 
+                    className={classes.cardVideo}
+                    component="iframe"
+                    src={picture.url}
+                    alt={picture.title}
+                />
+            );
+        }
+    }
+
     render() {
         const { classes, picture } = this.props;
         return (
@@ -52,12 +84,7 @@ export class PictureCard extends Component {
                         {picture.title}
                     </Typography>
                 </div>
-                <CardMedia 
-                    className={classes.cardImage}
-                    component="img"
-                    image={picture.url}
-                    alt={picture.title}
-                />
+                {this._renderCardMedia()}
                 <CardContent
                     className={classes.cardContent}
                 >
