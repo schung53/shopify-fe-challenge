@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PictureCard from '../components/PictureCard';
 import LoadingCard from '../components/LoadingCard';
 import MoreButton from '../components/MoreButton';
+import DatePicker from '../components/DatePicker';
 
 // Redux
 import { connect } from 'react-redux';
@@ -32,24 +33,25 @@ export class home extends Component {
                         <Grid item xs={11} >
                             <Grid container>
                                 <Grid item>
-                                    <Typography variant='h3' style={{margin: '20px auto auto 15px'}} color='#6db9fb'>
+                                    <Typography variant='h3' style={{ margin: '20px auto auto 15px' }} color='#6db9fb'>
                                         Spacestagram
                                     </Typography>
                                 </Grid>
                             </Grid>
                             <Grid container>
                                 <Grid item>
-                                    <Typography variant='body2' style={{margin: '10px auto 20px 15px'}} color='#6db9fb'>
+                                    <Typography variant='body2' style={{ margin: '10px auto 20px 15px' }} color='#6db9fb'>
                                         Brought to you by NASA's Astronomy Picture of the Day (APOD) API
                                     </Typography>
                                 </Grid>
                             </Grid>
+                            <DatePicker />
                             <Grid container justify="center">
                                 {loadingPictures ?
                                     <>
                                         {loadingArray.map((num) => {
                                             return (
-                                                <Grid key={num} item> 
+                                                <Grid key={num} item>
                                                     <LoadingCard />
                                                 </Grid>
                                             )
@@ -59,7 +61,7 @@ export class home extends Component {
                                     <>
                                         {pictures.map((picture) => {
                                             return (
-                                                <Grid key={picture.date} item> 
+                                                <Grid key={picture.date} item>
                                                     <PictureCard picture={picture} />
                                                 </Grid>
                                             )
@@ -72,7 +74,7 @@ export class home extends Component {
                     </Grid>
                 </div>
                 <MoreButton />
-                <Typography variant='body2' style={{margin: '20px auto 20px auto'}} color='white'>
+                <Typography variant='body2' style={{ margin: '20px auto 20px auto' }} color='white'>
                     Made with ♥ by James S. Chung – 2022
                 </Typography>
             </div>
