@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withStyles } from '@mui/styles';
 import PictureCard from '../components/PictureCard';
 
 // Redux
@@ -49,7 +48,7 @@ export class home extends Component {
             <button 
                 onClick={() => fetchMorePicturesAsync()}
             >
-                More
+                Show Me Some More!
             </button>
             </div>
         );
