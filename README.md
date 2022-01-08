@@ -1,44 +1,22 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Spacestagram
 
-## Available Scripts
+This is my submission for the Shopify Front-End Developer Challenge. It is an interactive viewer for NASA's Astronomy Picture of the Day (APOD). Users can view HD images of space and search for images from specific time periods.
 
-In the project directory, you can run:
+## Instructions
 
-### `npm start`
+1. `npm install`
+2. `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Screenshots
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Photos and their captions are displayed on cards:
 
-### `npm test`
+<img width="1428" alt="screenshot-1" src="https://user-images.githubusercontent.com/63022198/148657873-9767c82e-f57b-4db1-9eec-4cafd62f9664.png">
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Modal upon clicking on a photo:
 
-### `npm run build`
+<img width="1431" alt="screenshot-2" src="https://user-images.githubusercontent.com/63022198/148657887-b74b95a2-cac8-4f5b-9952-68786e2446da.png">
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Date range selection for specific queries:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img width="1425" alt="screenshot-3" src="https://user-images.githubusercontent.com/63022198/148657897-10e20872-161a-4ea0-9329-e6c27ba5bc0c.png">
