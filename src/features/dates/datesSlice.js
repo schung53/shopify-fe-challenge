@@ -20,7 +20,6 @@ export const datesSlice = createSlice({
         setDates: (state, action) => {
             state.currentDate = action.payload.endDate;
             state.lastDate = action.payload.startDate;
-            console.log(state.currentDate, state.lastDate)
         }
     }
 });

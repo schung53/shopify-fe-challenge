@@ -69,6 +69,15 @@ export class DatePicker extends Component {
     handleSubmit() {
         const { startValue, endValue } = this.state;
         const { searchDateRangeAsync } = this.props;
+
+        if (startValue === "" || endValue === "") {
+            this.setState({
+                errorMessage: 'Both dates must be supplied.',
+                errorOpen: true
+            });
+            return;
+        }
+
         const startDate = moment(startValue).format('YYYY-MM-DD');
         const endDate = moment(endValue).format('YYYY-MM-DD');
         const validator = dateRangeValidator(startDate, endDate);
@@ -184,6 +193,8 @@ export class DatePicker extends Component {
 }
 
 const mapStateToProps = (state) => ({
+    startDate: state.dates.lastDate,
+    endDate: state.dates.currentDate
 });
 
 const mapActionsToProps = {

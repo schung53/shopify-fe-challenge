@@ -31,7 +31,7 @@ export const fetchMorePicturesAsync = createAsyncThunk(
 
 export const searchDateRangeAsync = createAsyncThunk(
     'pictures/searchDateRangeAsync',
-    async (dateObject, { dispatch, getState, }) => {
+    async (dateObject, { dispatch }) => {
         const startDate = dateObject.startDate;
         const endDate = dateObject.endDate;
         dispatch(setDates({startDate, endDate}));
