@@ -73,6 +73,8 @@ export class PictureCard extends Component {
 
     render() {
         const { classes, picture } = this.props;
+        const humanizedDate = moment(picture.date).format("MMMM Do YYYY");
+
         return (
             <div>
             <Card 
@@ -89,17 +91,17 @@ export class PictureCard extends Component {
                     className={classes.cardContent}
                 >
                     <Typography variant='caption' style={{color: "#6db9fb"}}>
-                        {moment(picture.date).format("MMMM Do YYYY")}
+                        {humanizedDate}
                     </Typography>
                     {" – "}
                     <Typography variant='caption'>
                         {picture.explanation.slice(0, 100).trim()}...
                     </Typography>
-                    <PictureModal picture={picture}/>
+                    <PictureModal picture={picture} date={humanizedDate}/>
                 </CardContent>
             </Card>
             </div>
-        )
+        );
     }
 }
 
