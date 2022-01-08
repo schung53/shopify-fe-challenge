@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchPictures } from './picturesAPI';
-import { extendLastDate } from '../dates/datesSlice';
+import { extendLastDate, setDates } from '../dates/datesSlice';
 import moment from 'moment';
 
 const initialState = {
@@ -29,6 +29,17 @@ export const fetchMorePicturesAsync = createAsyncThunk(
     }
 );
 
+export const searchDateRangeAsync = createAsyncThunk(
+    'pictures/searchDateRangeAsync',
+    async (dateObject, { dispatch, getState, }) => {
+        const startDate = dateObject.startDate;
+        const endDate = dateObject.endDate;
+        dispatch(setDates({startDate, endDate}));
+        const response = await fetchPictures(startDate, endDate);
+        return response.reverse();
+    }
+);
+
 export const picturesSlice = createSlice({
     name: 'pictures',
     initialState,
@@ -49,7 +60,14 @@ export const picturesSlice = createSlice({
             .addCase(fetchMorePicturesAsync.fulfilled, (state, action) => {
                 state.moreLoading = false;
                 state.pictures = [...state.pictures, ...action.payload];
-            });
+            })
+            .addCase(searchDateRangeAsync.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(searchDateRangeAsync.fulfilled, (state, action) => {
+                state.loading = false;
+                state.pictures = action.payload;
+            })
     },
 });
 

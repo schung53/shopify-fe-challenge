@@ -16,6 +16,11 @@ export const datesSlice = createSlice({
         },
         extendLastDate: (state) => {
             state.lastDate = moment(state.lastDate).subtract(10, 'days').format('YYYY-MM-DD');
+        },
+        setDates: (state, action) => {
+            state.currentDate = action.payload.endDate;
+            state.lastDate = action.payload.startDate;
+            console.log(state.currentDate, state.lastDate)
         }
     }
 });
@@ -23,6 +28,6 @@ export const datesSlice = createSlice({
 export const selectCurrentDate = (state) => state.dates.currentDate;
 export const selectLastDate = (state) => state.dates.lastDate;
 
-export const { setInitialDates, extendLastDate } = datesSlice.actions;
+export const { setInitialDates, extendLastDate, setDates } = datesSlice.actions;
 
 export default datesSlice.reducer;
