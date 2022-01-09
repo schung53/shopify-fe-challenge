@@ -33,7 +33,7 @@ const styles = {
     },
     cardImage: {
         borderRadius: '7px',
-        maxWidth: '800px',
+        maxWidth: '795px',
         margin: '5px 5px 5px 5px'
     },
     cardVideo: {
