@@ -59,10 +59,10 @@ export class home extends Component {
                                     </>
                                     :
                                     <>
-                                        {pictures.map((picture) => {
+                                        {pictures.map((picture, index) => {
                                             return (
                                                 <Grid key={picture.date} item>
-                                                    <PictureCard picture={picture} />
+                                                    <PictureCard index={index} picture={picture} />
                                                 </Grid>
                                             )
                                         })}

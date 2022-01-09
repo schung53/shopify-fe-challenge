@@ -5,6 +5,10 @@ import moment from 'moment';
 import PictureModal from './PictureModal';
 import LikeButton from './LikeButton';
 
+// Redux
+import { connect } from 'react-redux';
+import { setModalOpen } from '../features/pictures/picturesSlice';
+
 // UI
 import { Card } from '@mui/material';
 import { CardMedia } from '@mui/material';
@@ -51,20 +55,27 @@ const styles = {
     }
 };
 
-
-
 export class PictureCard extends Component {
+    handleClick() {
+        const { index, setModalOpen } = this.props;
+        setModalOpen({index: index, isOpen: true});
+    }
+
     _renderCardMedia() {
         const { classes, picture } = this.props;
 
         if (picture.media_type === "image") {
             return (
-                <CardMedia 
-                    className={classes.cardImage}
-                    component="img"
-                    image={picture.url}
-                    alt={picture.title}
-                />
+                <button
+                    onClick={() => this.handleClick()}
+                >
+                    <CardMedia 
+                        className={classes.cardImage}
+                        component="img"
+                        image={picture.url}
+                        alt={picture.title}
+                    />
+                </button>
             );
         } else {
             return (
@@ -79,7 +90,7 @@ export class PictureCard extends Component {
     }
 
     render() {
-        const { classes, picture } = this.props;
+        const { classes, picture, index } = this.props;
         const humanizedDate = moment(picture.date).format("MMMM Do YYYY");
 
         return (
@@ -109,7 +120,7 @@ export class PictureCard extends Component {
                             <LikeButton />
                         </Grid>
                         <Grid item>
-                            <PictureModal picture={picture} date={humanizedDate}/>
+                            <PictureModal index={index} picture={picture} date={humanizedDate}/>
                         </Grid>
                     </Grid>
                 </CardContent>
@@ -119,8 +130,18 @@ export class PictureCard extends Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    pictures: state.pictures.pictures
+})
+
+const mapActionsToProps = {
+    setModalOpen
+};
+
+
 PictureCard.propTypes = {
+    index: PropTypes.number,
     picture: PropTypes.object
 }
 
-export default withStyles(styles)(PictureCard);
+export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(PictureCard));

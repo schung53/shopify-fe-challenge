@@ -9,11 +9,18 @@ const initialState = {
     moreLoading: false
 };
 
+const formatResponse = (response) => {
+    let formattedResponse = [];
+    response.reverse().forEach((picture) => {formattedResponse.push({...picture, open: false})});
+    console.log(formattedResponse);
+    return formattedResponse;
+};
+
 export const fetchPicturesAsync = createAsyncThunk(
     'pictures/fetchPictures',
     async (_, { getState }) => {
         const response = await fetchPictures(getState().dates.lastDate, getState().dates.currentDate);
-        return response.reverse();
+        return formatResponse(response);
     }
 );
 
@@ -25,7 +32,7 @@ export const fetchMorePicturesAsync = createAsyncThunk(
         dispatch(extendLastDate());
         let newStartDate = getState().dates.lastDate;
         const response = await fetchPictures(newStartDate, newEndDate);
-        return response.reverse();
+        return formatResponse(response);
     }
 );
 
@@ -36,7 +43,7 @@ export const searchDateRangeAsync = createAsyncThunk(
         const endDate = dateObject.endDate;
         dispatch(setDates({startDate, endDate}));
         const response = await fetchPictures(startDate, endDate);
-        return response.reverse();
+        return formatResponse(response);
     }
 );
 
@@ -44,6 +51,9 @@ export const picturesSlice = createSlice({
     name: 'pictures',
     initialState,
     reducers: {
+        setModalOpen: (state, action) => {
+            state.pictures[action.payload.index].open = action.payload.isOpen
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -70,6 +80,8 @@ export const picturesSlice = createSlice({
             })
     },
 });
+
+export const { setModalOpen } = picturesSlice.actions;
 
 export const selectPictures = (state) => state.pictures.pictures;
 

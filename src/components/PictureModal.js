@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@mui/styles';
-import cssStyles from './PictureModal.module.css';
+import './PictureModal.module.css';
+
+// Redux
+import { connect } from 'react-redux';
+import { setModalOpen } from '../features/pictures/picturesSlice';
+
 
 // UI
 import { Button } from '@mui/material';
@@ -58,19 +63,15 @@ const styles = {
 };
 
 export class PictureModal extends Component {
-    constructor(){
-        super();
-        this.state = {
-            open: false
-        };
-    };
 
     handleOpen = () => {
-        this.setState({ open: true });
+        const { index, setModalOpen } = this.props;
+        setModalOpen({ index, isOpen: true });
     };
 
     handleClose = () => {
-        this.setState({ open: false });
+        const { index, setModalOpen } = this.props;
+        setModalOpen({ index, isOpen: false });
     };
 
     _renderCardMedia() {
@@ -97,8 +98,7 @@ export class PictureModal extends Component {
     }
 
     render() {
-        const { open } = this.state;
-        const { classes, picture, date } = this.props;
+        const { classes, picture, pictures, date, index } = this.props;
         return (
             <div>
                 <Button
@@ -110,7 +110,7 @@ export class PictureModal extends Component {
                     Read More
                 </Button>
                 <Dialog
-                    open={open}
+                    open={pictures[index].open}
                     maxWidth='xl'
                     onClose={this.handleClose}
                 >
@@ -150,9 +150,17 @@ export class PictureModal extends Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    pictures: state.pictures.pictures
+})
+
+const mapActionsToProps = {
+    setModalOpen
+};
+
 PictureModal.propTypes = {
     picture: PropTypes.object,
     date: PropTypes.string
 }
 
-export default withStyles(styles)(PictureModal);
+export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(PictureModal));
