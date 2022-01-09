@@ -12,7 +12,6 @@ const initialState = {
 const formatResponse = (response) => {
     let formattedResponse = [];
     response.reverse().forEach((picture) => {formattedResponse.push({...picture, open: false})});
-    console.log(formattedResponse);
     return formattedResponse;
 };
 

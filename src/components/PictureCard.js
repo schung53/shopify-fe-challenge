@@ -15,6 +15,7 @@ import { CardMedia } from '@mui/material';
 import { CardContent } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
+import css from './PictureCard.module.css';
 
 const styles = {
     card: {
@@ -35,9 +36,7 @@ const styles = {
     },
     cardImage: {
         borderRadius: '7px',
-        maxWidth: '96%',
-        margin: '5px 5px 5px 5px'
-    },
+        maxWidth: '96%'    },
     cardVideo: {
         borderColor: '#001c33',
         borderRadius: '7px',
@@ -52,6 +51,14 @@ const styles = {
     actionsGrid: {
         justifyContent: 'space-between',
         marginTop: '6px'
+    },
+    imageButton: {
+        maxWidth: '96%',
+        borderRadius: '7px',
+        margin: '5px -5px 5px 5px',
+        cursor: 'pointer',
+        backgroundColor: 'transparent',
+        borderColor: 'transparent'
     }
 };
 
@@ -66,9 +73,7 @@ export class PictureCard extends Component {
 
         if (picture.media_type === "image") {
             return (
-                <button
-                    onClick={() => this.handleClick()}
-                >
+                <button onClick={() => this.handleClick()} className={classes.imageButton}>
                     <CardMedia 
                         className={classes.cardImage}
                         component="img"
