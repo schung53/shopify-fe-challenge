@@ -4,8 +4,9 @@ This is my submission for the Shopify Front-End Developer Challenge. It is an in
 
 ## Instructions
 
-1. `npm run build`
-2. `npm run start`
+1. `npm install`
+2. `npm run build`
+3. `npm run start`
 
 Or, check out the demo [here](https://shopify-fe-challenge.herokuapp.com/).
 
